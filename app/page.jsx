@@ -5,9 +5,9 @@ export default function Home() {
   return (
    <div>
     <h1>Welcome to Project Manager Scrum</h1>
-    <Button >
+    {/* <Button >
       Get Started
-    </Button>
+    </Button> */}
    </div>
   );
 }

@@ -1,6 +1,9 @@
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import Header from "@/components/header";
+import { ClerkProvider } from "@clerk/nextjs";
+import { shadesOfPurple } from "@clerk/themes";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,18 +20,40 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Scrum Project Manager",
+  title: "WorkFlow-Manager ✨",
   description: "A project management tool for Scrum teams",
 };
 
 export default function RootLayout({ children }) {
   return (
+    <div>
+
+    <ClerkProvider
+      appearance={{
+        baseTheme: shadesOfPurple,
+        variables: {
+          colorPrimary: "#6c63ff",
+          colorBackground: "#121212",
+          colorInputBackground: "#1e1e1e",
+          // colorInputText: "#ffffff",
+  
+        },
+        elements:{
+          formButtonPrimary: "bg-sky-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded",
+          card: "bg-gray-800",
+          headerTitle: "text-2xl text-blue-300",
+          headerSubtitle: "text-sm text-gray-400",
+          // footer: "text-gray-500 text-sm",
+        }
+      }
+      }
+  >
+
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ThemeProvider attribute="class" theme="dark">
-          {/* <header/> */}
+       className={`${inter.className}`} >
+        <ThemeProvider attribute="class" defaulttheme="dark">
+          <Header/>
           <main className="min-h-screen flex flex-col">
           {children}
           </main>
@@ -43,5 +68,7 @@ export default function RootLayout({ children }) {
         </ThemeProvider>
       </body>
     </html>
+    </ClerkProvider>
+      </div>
   );
 }
