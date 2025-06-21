@@ -60,7 +60,7 @@ export default function RootLayout({ children }) {
           <footer className="bg-gray-900 py-12">
             <div className="container mx-auto px-4 text-center text-gray-300">
               <p className="text-center text-sm ">
-              © {new Date().getFullYear()} Scrum Project Manager. All rights reserved.
+              © {new Date().getFullYear()} WorkFlowX Project Manager. All rights reserved.
             </p>
             <p>Made with 💖 by DeveloperXdev</p>
             </div>
